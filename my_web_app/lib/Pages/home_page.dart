@@ -18,7 +18,12 @@ class HomePage extends StatelessWidget {
             // Admin Button
             ElevatedButton(
               onPressed: () {
-                // Add your onPressed code here
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          AdminPage()), // Navigate to AdminPage
+                );
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.lightGreen, // Background color

@@ -61,9 +61,14 @@ class _SplashScreenState extends State<SplashScreen> {
                   fit: BoxFit.contain, // Maintain aspect ratio
                 ),
               ),
-              Text(
+              const Text(
                 'Welcome to Harambee',
-                style: TextStyle(fontSize: 24, color: Colors.lightGreen),
+                style: TextStyle(
+                  fontSize: 24,
+                  color: Colors.lightGreen,
+                  fontFamily: 'Lato', // Set the font family to Lato
+                  fontStyle: FontStyle.italic, // Set the font style to italic
+                ),
               ),
             ],
           ),
