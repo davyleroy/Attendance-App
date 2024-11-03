@@ -2,10 +2,13 @@
 import 'package:my_web_app/models/trainee.dart'; // Update with your actual path
 import 'package:my_web_app/services/notification_service.dart'; // Update with your actual path
 import 'package:my_web_app/models/attendance.dart'; // Add this import for Attendance
+import 'google_sheets_service.dart'; // Import the Google Sheets service
 
 class AttendanceService {
   final List<Attendance> _attendanceRecords = [];
   final NotificationService _notificationService = NotificationService();
+  final GoogleSheetsService _googleSheetsService =
+      GoogleSheetsService(); // Create an instance
   final int clockInLimitHour = 9; // Define the clock-in limit hour
   final int clockInLimitMinute = 0; // Define the clock-in limit minute
   final String lateArrivalSubject =
@@ -20,6 +23,14 @@ class AttendanceService {
       clockInTime: now,
     );
     _attendanceRecords.add(attendance);
+
+    // Sync attendance data to Google Sheets
+    _googleSheetsService.syncData([
+      {
+        'Trainee ID': trainee.id,
+        'Clock In Time': now.toIso8601String(),
+      }
+    ]);
 
     // Check if the clock-in time is late
     if (now.hour > clockInLimitHour ||
