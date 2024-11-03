@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class AdminPage extends StatefulWidget {
+  const AdminPage({super.key});
+
   @override
   _AdminPageState createState() => _AdminPageState();
 }
@@ -25,7 +27,7 @@ class _AdminPageState extends State<AdminPage> {
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
+                const Text(
                   'Enter Password',
                   style: TextStyle(
                     color: Colors.white,
@@ -33,9 +35,9 @@ class _AdminPageState extends State<AdminPage> {
                     fontStyle: FontStyle.italic, // Set the font style to italic
                   ),
                 ),
-                SizedBox(height: 20), // Space between text and input
+                const SizedBox(height: 20), // Space between text and input
                 Center(
-                  child: Container(
+                  child: SizedBox(
                     width: MediaQuery.of(context).size.width *
                         0.8, // Set width to 80% of the screen width
                     child: TextField(
@@ -51,7 +53,7 @@ class _AdminPageState extends State<AdminPage> {
                     ),
                   ),
                 ),
-                SizedBox(height: 20), // Space between input and button
+                const SizedBox(height: 20), // Space between input and button
                 MouseRegion(
                   onEnter: (_) => _onHover(true),
                   onExit: (_) => _onHover(false),
@@ -74,7 +76,7 @@ class _AdminPageState extends State<AdminPage> {
                           _buttonColor, // Use the button color state
                       foregroundColor: Colors.white, // Text color
                     ),
-                    child: Text('Validate'),
+                    child: const Text('Validate'),
                   ),
                 ),
               ],

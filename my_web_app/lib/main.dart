@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
-import 'Pages/splash_screen.dart';
+import 'package:my_web_app/screens/splash_screen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Harambee',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: SplashScreen(), // Set SplashScreen as the home widget
+      home: const SplashScreen(),
     );
   }
 }
